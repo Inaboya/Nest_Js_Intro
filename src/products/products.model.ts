@@ -1,9 +1,15 @@
 /* eslint-disable prettier/prettier */
-export class Products {
-  constructor(
-    public id: string,
-    public name: string,
-    public price: number,
-    public description: string,
-  ) {}
+import { Schema, Document } from 'mongoose';
+
+export const ProductSchema = new Schema({
+  name: { type: String, required: true },
+  price: { type: Number, required: true },
+  description: { type: String, required: true },
+});
+
+export interface Products extends Document {
+  id: string;
+  name: string;
+  price: number;
+  description: string;
 }
